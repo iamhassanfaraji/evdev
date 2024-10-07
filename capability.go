@@ -21,8 +21,6 @@ type Capability struct{
   CapabilityCodes []CapabilityCode
 } 
 
-var possibleCapabilities []Capability
-
 func checkPrefix(value string, prefixes string) bool{
   var speratedPrefix = strings.Split(prefixes, ",") 
   for _,p := range speratedPrefix {

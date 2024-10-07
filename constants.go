@@ -1,5 +1,7 @@
 package evdev
 
+import "fmt"
+
 const (
 	ID_BUS                       = 0
 	ID_VENDOR                    = 1
@@ -1467,4 +1469,10 @@ var inputCodes = map[string]uint16{
 	"SND_BELL":                     SND_BELL,
 	"SND_TONE":                     SND_TONE,
 	"SND_MAX":                      SND_MAX,
+}
+
+var possibleCapabilities []Capability
+
+func init(){
+  possibleCapabilities = generatePossibleCapabilities()  
 }
