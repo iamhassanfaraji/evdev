@@ -1,7 +1,5 @@
 package evdev
 
-import "fmt"
-
 const (
 	ID_BUS                       = 0
 	ID_VENDOR                    = 1
