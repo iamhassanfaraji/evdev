@@ -726,8 +726,8 @@ const (
 	SND_MAX                      = 0x07
 )
 
-var inputTypes = map[string]int{
-  "EV_SYN":                       EV_SYN,
+var inputTypes = map[string]uint16{
+    "EV_SYN":                       EV_SYN,
 	"EV_KEY":                       EV_KEY,
 	"EV_REL":                       EV_REL,
 	"EV_ABS":                       EV_ABS,
@@ -740,8 +740,8 @@ var inputTypes = map[string]int{
 	"EV_PWR":                       EV_PWR,
 }
 
-var prefixCodeOfInputTypes = map[CapabilityType]string{
-  EV_SYN:                       "SYN",
+var prefixCodeOfInputTypes = map[uint16]string{
+  	EV_SYN:                       "SYN",
 	EV_KEY:                       "KEY,BTN",
 	EV_REL:                       "REL",
 	EV_ABS:                       "ABS",
@@ -750,11 +750,11 @@ var prefixCodeOfInputTypes = map[CapabilityType]string{
 	EV_LED:                       "LED",
 	EV_SND:                       "SND",
 	EV_REP:                       "REP",
-  EV_FF:                        "FF",
-  EV_PWR:                       "PWR",
+  	EV_FF:                        "FF",
+  	EV_PWR:                       "PWR",
 }
 
-var inputCodes = map[string]int{
+var inputCodes = map[string]uint16{
 	"ID_BUS":                       ID_BUS,
 	"ID_VENDOR":                    ID_VENDOR,
 	"ID_PRODUCT":                   ID_PRODUCT,

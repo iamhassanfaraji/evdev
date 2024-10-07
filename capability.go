@@ -1,19 +1,24 @@
 package evdev
-import ("testing")
+
+import (
+	"fmt"
+	"strings"
+  "testing"
+)
 
 type CapabilityType struct {
-  name string
-  code uint16
+  Name string
+  Code uint16
 }
 
 type CapabilityCode struct { 
-  name string
-  code uint16
+  Name string
+  Code uint16
 }
 
 type Capability struct{
-  capabilityType CapabilityType
-  capabilityCodes []CapabilityCode
+  CapabilityType CapabilityType
+  CapabilityCodes []CapabilityCode
 } 
 
 var possibleCapabilities []Capability
@@ -32,30 +37,45 @@ func checkPrefix(value string, prefixes string) bool{
   return true
 }
 
-func generatePossibleCapabilities() {
-  for inputTypeName, inputTypeValue := range inputType {
+func inspect(data []Capability){
+  var err = recover()
+  fmt.Println(err)
+  fmt.Println(data)
+}
+
+func generatePossibleCapabilities() []Capability {
+  var possibleCapabilities []Capability
+
+  for inputTypeName, inputTypeValue := range inputTypes {
     var capabilityCodes []CapabilityCode
     
     for inputCodeName, inputCodeValue := range inputCodes{
       
       if checkPrefix(inputCodeName, prefixCodeOfInputTypes[inputTypeValue]) {
-        append(capabilityCodes, CapabilityCode{inputCodeName, inputCodeValue}  
+        capabilityCodes = append(
+          capabilityCodes, 
+          CapabilityCode{
+            inputCodeName,
+            inputCodeValue,
+          },
+        )
       }else{
         continue
       }
     }  
 
-    append(possibleCapabilities, Capability{
-      CapabilityType{inputTypeName, inputTypeValue},
-      capabilityCodes,
-    } 
+    possibleCapabilities = append(
+      possibleCapabilities, 
+      Capability{
+        CapabilityType{inputTypeName, inputTypeValue},
+        capabilityCodes,
+      },
+    )
   }
+
+  return possibleCapabilities
 }
 
-func TestGeneratorCapabilities(t *test.T){
+func TestGeneratorCapabilities(t *testing.T){
   t.Error("fake error")  
-}
-
-func init(){
-  generatePossibleCapabilities()  
 }

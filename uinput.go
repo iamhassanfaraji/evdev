@@ -1,10 +1,7 @@
 package evdev
 
-import (
-  "syscall"
-)
 
-uinputPath = "/dev/uinput"
+var uinputPath = "/dev/uinput"
 
 
 func init(){
