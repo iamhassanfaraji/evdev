@@ -7,18 +7,17 @@ import (
 
 // InputDevice is type devices that are connected to machine for user communication
 type Device struct {
-  Path string // path to input device (devnode)
+  Path string 
 
-  Name string   // device name
-  Phys string   // physical topology of device
-  File *os.File // an open file handle to the input device
+  Name string
+  Phys string
 
-  BusType uint16 // bus type identifier
-  Vendor  uint16 // vendor identifier
-  Product uint16 // product identifier
-  Version uint16 // version identifier
+  BusType uint16
+  Vendor  uint16
+  Product uint16
+  Version uint16
 
-  EvdevVersion int // evdev protocol version
+  EvdevVersion int
 
   Capabilities []Capability
 }
