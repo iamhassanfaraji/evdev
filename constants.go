@@ -727,7 +727,7 @@ const (
 )
 
 var inputTypes = map[string]uint16{
-    "EV_SYN":                       EV_SYN,
+  "EV_SYN":                       EV_SYN,
 	"EV_KEY":                       EV_KEY,
 	"EV_REL":                       EV_REL,
 	"EV_ABS":                       EV_ABS,
@@ -741,7 +741,7 @@ var inputTypes = map[string]uint16{
 }
 
 var prefixCodeOfInputTypes = map[uint16]string{
-  	EV_SYN:                       "SYN",
+  EV_SYN:                       "SYN",
 	EV_KEY:                       "KEY,BTN",
 	EV_REL:                       "REL",
 	EV_ABS:                       "ABS",
@@ -750,8 +750,8 @@ var prefixCodeOfInputTypes = map[uint16]string{
 	EV_LED:                       "LED",
 	EV_SND:                       "SND",
 	EV_REP:                       "REP",
-  	EV_FF:                        "FF",
-  	EV_PWR:                       "PWR",
+  EV_FF:                        "FF",
+  EV_PWR:                       "PWR",
 }
 
 var inputCodes = map[string]uint16{
@@ -804,12 +804,10 @@ var inputCodes = map[string]uint16{
 	"FF_GAIN":                      FF_GAIN,
 	"FF_AUTOCENTER":                FF_AUTOCENTER,
 	"FF_MAX_EFFECTS":               FF_MAX_EFFECTS,
-	"FF_MAX":                       FF_MAX,
 	"SYN_REPORT":                   SYN_REPORT,
 	"SYN_CONFIG":                   SYN_CONFIG,
 	"SYN_MT_REPORT":                SYN_MT_REPORT,
 	"SYN_DROPPED":                  SYN_DROPPED,
-	"SYN_MAX":                      SYN_MAX,
 	"KEY_RESERVED":                 KEY_RESERVED,
 	"KEY_ESC":                      KEY_ESC,
 	"KEY_1":                        KEY_1,
@@ -1369,7 +1367,6 @@ var inputCodes = map[string]uint16{
 	"BTN_TRIGGER_HAPPY39":          BTN_TRIGGER_HAPPY39,
 	"BTN_TRIGGER_HAPPY40":          BTN_TRIGGER_HAPPY40,
 	"KEY_MIN_INTERESTING":          KEY_MIN_INTERESTING,
-	"KEY_MAX":                      KEY_MAX,
 	"REL_X":                        REL_X,
 	"REL_Y":                        REL_Y,
 	"REL_Z":                        REL_Z,
@@ -1440,14 +1437,12 @@ var inputCodes = map[string]uint16{
 	"SW_LINEIN_INSERT":             SW_LINEIN_INSERT,
 	"SW_MUTE_DEVICE":               SW_MUTE_DEVICE,
 	"SW_PEN_INSERTED":              SW_PEN_INSERTED,
-	"SW_MAX":                       SW_MAX,
 	"MSC_SERIAL":                   MSC_SERIAL,
 	"MSC_PULSELED":                 MSC_PULSELED,
 	"MSC_GESTURE":                  MSC_GESTURE,
 	"MSC_RAW":                      MSC_RAW,
 	"MSC_SCAN":                     MSC_SCAN,
 	"MSC_TIMESTAMP":                MSC_TIMESTAMP,
-	"MSC_MAX":                      MSC_MAX,
 	"LED_NUML":                     LED_NUML,
 	"LED_CAPSL":                    LED_CAPSL,
 	"LED_SCROLLL":                  LED_SCROLLL,
@@ -1459,14 +1454,11 @@ var inputCodes = map[string]uint16{
 	"LED_MISC":                     LED_MISC,
 	"LED_MAIL":                     LED_MAIL,
 	"LED_CHARGING":                 LED_CHARGING,
-	"LED_MAX":                      LED_MAX,
 	"REP_DELAY":                    REP_DELAY,
 	"REP_PERIOD":                   REP_PERIOD,
-	"REP_MAX":                      REP_MAX,
 	"SND_CLICK":                    SND_CLICK,
 	"SND_BELL":                     SND_BELL,
 	"SND_TONE":                     SND_TONE,
-	"SND_MAX":                      SND_MAX,
 }
 
 var possibleCapabilities []Capability
