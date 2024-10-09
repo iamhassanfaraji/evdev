@@ -16,6 +16,7 @@ func TestGeneratorCapabilities(t *testing.T){
 	  "EV_SND": 3,
 	  "EV_REP": 2,
 	  "EV_FF":  24,
+    "EV_PWR": 0,
   }
 
   capabilities := generatePossibleCapabilities() 
