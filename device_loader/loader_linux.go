@@ -2,7 +2,7 @@
 
 package evdev
 
-const inputDevicesPath = "/dev/input/"
+var InputDevicesPath = "/dev/input/"
 
 const (
   ERR_NO_CASE = "can't find valid InputDevice file"
@@ -16,7 +16,7 @@ func GetDevices(path string) ([]Device, error) {
   if path != nil {
     finalPath = path
   } else {
-    finalPath = inputDevicesPath 
+    finalPath = InputDevicesPath 
   }
 
 	devices := make([]
@@ -42,7 +42,7 @@ func GetDevices(path string) ([]Device, error) {
 	return devices, nil
 }
 
-func getDevice(path string) (Device, error){
+func GetDevice(path string) (Device, error){
     fileInfo, err := os.Stat(path)
     if err == nil {
       return nil, error.New(ERR_NO_CASE)
