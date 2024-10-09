@@ -1,9 +1,7 @@
 package evdev
 
 import (
-	"fmt"
 	"strings"
-  "testing"
 )
 
 type CapabilityType struct {
@@ -23,22 +21,16 @@ type Capability struct{
 
 func checkPrefix(value string, prefixes string) bool{
   var speratedPrefix = strings.Split(prefixes, ",") 
-  for _,p := range speratedPrefix {
-    var result= strings.HasPrefix(value, p) 
-    if result == true {
-      continue
+  for i := 0; i < len(speratedPrefix); i++ {
+
+    if strings.HasPrefix(value, speratedPrefix[i]) {
+      return true
     } else {
-      return false
+      continue
     }
   }  
 
-  return true
-}
-
-func inspect(data []Capability){
-  var err = recover()
-  fmt.Println(err)
-  fmt.Println(data)
+  return false
 }
 
 func generatePossibleCapabilities() []Capability {
@@ -72,8 +64,4 @@ func generatePossibleCapabilities() []Capability {
   }
 
   return possibleCapabilities
-}
-
-func TestGeneratorCapabilities(t *testing.T){
-  t.Error("fake error")  
 }
