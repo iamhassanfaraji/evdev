@@ -23,13 +23,13 @@ func TestGeneratorCapabilities(t *testing.T){
   var unexpectedCapabilityCodesNumber = make(map[string]int) 
 
   for _,v := range capabilities {
-    if expectation[v.CapabilityType.Name] == len(v.CapabilityCodes){
+    if expectation[v.CapabilityType.name] == len(v.CapabilityCodes){
       continue
     }else{
-      unexpectedCapabilityCodesNumber[v.CapabilityType.Name] = len(v.CapabilityCodes)
+      unexpectedCapabilityCodesNumber[v.CapabilityType.name] = len(v.CapabilityCodes)
     }
   } 
-    
+ 
   if len(unexpectedCapabilityCodesNumber) != 0 { 
     t.Error("there is'nt build capabilities in right range") 
   } 

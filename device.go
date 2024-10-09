@@ -1,7 +1,6 @@
 package evdev
 
 import (
-  "os"
   "fmt"
 )
 
@@ -25,11 +24,11 @@ type Device struct {
 func (dev *Device) stringifyDevice() string {	
 
 	return fmt.Sprintf(
-		"InputDevice %s (fd %d)\n"+
+		"InputDevice %s "+
 			"  name %s\n"+
 			"  phys %s\n"+
 			"  bus 0x%04x, vendor 0x%04x, product 0x%04x, version 0x%04x\n"+
-      dev.Path, dev.File.Fd(), dev.Name, dev.Phys, dev.BusType,
+      dev.Path, dev.Name, dev.Phys, dev.BusType,
 		dev.Vendor, dev.Product, dev.Version)
 }
  

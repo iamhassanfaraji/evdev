@@ -1,6 +1,7 @@
 package evdev
 
 const (
+	EV_VERSION                   = 0x010001
 	ID_BUS                       = 0
 	ID_VENDOR                    = 1
 	ID_PRODUCT                   = 2
@@ -62,6 +63,8 @@ const (
 	EV_REP                       = 0x14
 	EV_FF                        = 0x15
 	EV_PWR                       = 0x16
+	EV_FF_STATUS                 = 0x17
+	EV_MAX                       = 0x1f
 	SYN_REPORT                   = 0
 	SYN_CONFIG                   = 1
 	SYN_MT_REPORT                = 2
@@ -726,6 +729,7 @@ const (
 	SND_MAX                      = 0x07
 )
 
+
 var inputTypes = map[string]uint16{
   "EV_SYN":                       EV_SYN,
 	"EV_KEY":                       EV_KEY,
@@ -738,6 +742,25 @@ var inputTypes = map[string]uint16{
 	"EV_REP":                       EV_REP,
 	"EV_FF":                        EV_FF,
 	"EV_PWR":                       EV_PWR,
+}
+
+var maxOfKeys = map[string]uint16{
+  "FF_MAX": FF_MAX,
+  "FF_STATUS_MAX": FF_STATUS_MAX,
+  "FF_EFFECT_MAX": FF_RAMP,
+  "FF_WAVEFORM_MAX": FF_CUSTOM,
+  "FF_MAX_EFFECTS": FF_MAX_EFFECTS,
+  "EV_MAX": EV_MAX,
+  "SYN_MAX": SYN_MAX,
+  "KEY_BRIGHTNESS_MAX": KEY_BRIGHTNESS_MAX,
+  "KEY_MAX": KEY_MAX,
+  "REL_MAX": REL_MAX,
+  "ABS_MAX": ABS_MAX,
+  "SW_MAX": SW_MAX,
+  "MSC_MAX": MSC_MAX,
+  "LED_MAX": LED_MAX,
+  "REP_MAX": REP_MAX,
+  "SND_MAX": SND_MAX,
 }
 
 var prefixCodeOfInputTypes = map[uint16]string{
