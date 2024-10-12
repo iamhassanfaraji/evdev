@@ -13,8 +13,8 @@ type Phys string
 type Device struct {
   id  IDDevice// in linux initialized by path, in macos initialized by hardware UUID , in windows initialized by hardware ID
 
-  name string
-  phys string
+  name Name
+  phys Phys
 
   busType uint16
   vendor  uint16
