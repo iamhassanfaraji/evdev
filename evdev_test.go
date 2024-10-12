@@ -23,10 +23,10 @@ func TestGeneratorCapabilities(t *testing.T){
   var unexpectedCapabilityCodesNumber = make(map[string]int) 
 
   for _,v := range capabilities {
-    if expectation[v.CapabilityType.name] == len(v.CapabilityCodes){
+    if expectation[v.capabilityType.name] == len(v.capabilityCodes){
       continue
     }else{
-      unexpectedCapabilityCodesNumber[v.CapabilityType.name] = len(v.CapabilityCodes)
+      unexpectedCapabilityCodesNumber[v.capabilityType.name] = len(v.capabilityCodes)
     }
   } 
  
