@@ -16,8 +16,8 @@ type CapabilityCode struct {
 }
 
 type Capability struct{
-  CapabilityType CapabilityType
-  CapabilityCodes []CapabilityCode
+  capabilityType CapabilityType
+  capabilityCodes []CapabilityCode
 }  
 
 func findCodes(prefix string) []CapabilityCode{
@@ -81,4 +81,35 @@ func generatePossibleCapabilities() []Capability {
   } 
 
   return possibleCapabilities
+} 
+
+
+func capabilitySeter(id IDDevice) []Capability{
+  var possibleCapabilities []Capability = generatePossibleCapabilities()
+ 
+  var availableCapabilities []Capability
+  
+  for k,v := range possibleCapabilities{
+    ok, err := v.capabilityType.checkInputType(id)
+    if ok {
+      availableCapabilities = append(availableCapabilities, Capability{})
+      availableCapabilities[k].capabilityType = v.capabilityType  
+      for _, vc := range v.capabilityCodes {
+        ok, err := vc.checkInputCode(id, v.capabilityType)
+        if ok {
+           availableCapabilities[k].capabilityCodes = append(availableCapabilities[k].capabilityCodes, vc) 
+        } else if !ok && err == nil {
+          continue
+        }else{
+          panic(err)
+        }
+      }
+    } else if !ok && err == nil{
+      continue
+    } else {
+      panic(err)
+    } 
+  } 
+
+  return availableCapabilities
 }
