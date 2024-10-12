@@ -4,45 +4,42 @@ import (
   "fmt"
 )
 
+type IDDevice string
+type Name string
+type Phys string
+
 // InputDevice is type devices that are connected to machine for user communication
+// field of a Device should be private, any changes able with method
 type Device struct {
-  Path string 
+  id  IDDevice// in linux initialized by path, in macos initialized by hardware UUID , in windows initialized by hardware ID
 
-  Name string
-  Phys string
+  name string
+  phys string
 
-  BusType uint16
-  Vendor  uint16
-  Product uint16
-  Version uint16
+  busType uint16
+  vendor  uint16
+  product uint16
+  version uint16
 
-  EvdevVersion int
+  evdevVersion int
 
-  Capabilities []Capability
+  capabilities []Capability
 }
 
-func (dev *Device) stringifyDevice() string {	
+func (dev *Device) StringifyDevice() string {	
 
 	return fmt.Sprintf(
 		"InputDevice %s "+
 			"  name %s\n"+
 			"  phys %s\n"+
 			"  bus 0x%04x, vendor 0x%04x, product 0x%04x, version 0x%04x\n"+
-      dev.Path, dev.Name, dev.Phys, dev.BusType,
-		dev.Vendor, dev.Product, dev.Version)
-}
- 
-
-type AbsInfo struct {
-	value      int32
-	minimum    int32
-	maximum    int32
-	fuzz       int32
-	flat       int32
-	resolution int32
+      string(dev.id), dev.name, dev.phys, dev.busType,
+		dev.vendor, dev.product, dev.version)
 }
 
-// Corresponds to the input_id struct.
-type device_info struct {
-	bustype, vendor, product, version uint16
+type DeviceInfo struct {
+    busType uint16
+    vendor  uint16
+    product uint16
+    version uint16
 }
