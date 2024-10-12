@@ -1,6 +1,10 @@
 package evdev
 
 const (
+  EVIOCGBIT                    = 2147504128
+  EVIOCGNAME                   = 0x82004506 // ioctl request code for device name
+  EVIOCGPHYS                   = 0x82004507 // ioctl request code for physical location
+  EVIOCGID                     = 0x80084502 // ioctl request code for device information
 	EV_VERSION                   = 0x010001
 	ID_BUS                       = 0
 	ID_VENDOR                    = 1
