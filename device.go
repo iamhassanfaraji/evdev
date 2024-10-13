@@ -21,8 +21,6 @@ type Device struct {
   product uint16
   version uint16
 
-  evdevVersion int
-
   capabilities []Capability
 }
 
@@ -43,3 +41,22 @@ type DeviceInfo struct {
     product uint16
     version uint16
 }
+
+func GetDevice (id IDDevice) (Device, error){
+  name, phys, deviceInfo, err := deviceInfoExtractor(id) 
+  if err != nil {
+    return Device{}, err 
+  }
+
+  return Device{
+    id,
+    name,
+    phys,
+    deviceInfo.busType,
+    deviceInfo.vendor,
+    deviceInfo.product,
+    deviceInfo.version,    
+    capabilitySeter(id),
+  }, nil
+}
+
