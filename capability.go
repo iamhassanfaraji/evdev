@@ -113,3 +113,12 @@ func capabilitySeter(id IDDevice) []Capability{
 
   return availableCapabilities
 }
+
+func CapabilityTypeProvider (f func(string, uint16, uint16) bool, arg *CapabilityType) bool {
+  return f(arg.name, arg.code, arg.max) 
+}
+
+func CapabilityCodeProvider (f func(string, uint16) bool, arg *CapabilityCode) bool {
+  return f(arg.name, arg.code)
+}
+
