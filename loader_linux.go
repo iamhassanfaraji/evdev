@@ -25,7 +25,7 @@ const (
   ERR_CHECK_INPUT_CODE = "can't resolve availablity of input code(%v) of input type(%v) of device(%v)"
 )
 
-func availableDevices() ([]IDDevice, error) {  
+func availableDevices() (*[]IDDevice, error) {  
 	var ids []IDDevice
  
   files, err := os.ReadDir(InputDevicesPath)
@@ -37,7 +37,7 @@ func availableDevices() ([]IDDevice, error) {
     ids = append(ids, IDDevice(filepath.Join(InputDevicesPath, v.Name()))) 
 	} 
 
-	return ids, nil
+	return &ids, nil
 }
 
 func deviceInfoExtractor(path IDDevice) (Name, Phys, DeviceInfo, error){

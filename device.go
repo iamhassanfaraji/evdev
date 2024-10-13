@@ -60,3 +60,22 @@ func GetDevice (id IDDevice) (Device, error){
   }, nil
 }
 
+func GetDevices() (*[]Device, error){
+  ids, err := availableDevices() 
+
+  if err != nil{
+    return nil, err   
+  }
+
+  var devices []Device 
+
+  for _,id := range *ids {
+    device, err := GetDevice(id)
+    if err != nil {
+      return nil, err
+    }
+    devices = append(devices, device)
+  }
+
+  return &devices, nil
+}
