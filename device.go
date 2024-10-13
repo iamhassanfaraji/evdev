@@ -36,10 +36,10 @@ func (dev *Device) StringifyDevice() string {
 }
 
 type DeviceInfo struct {
-    busType uint16
-    vendor  uint16
-    product uint16
-    version uint16
+    BusType uint16
+    Vendor  uint16
+    Product uint16
+    Version uint16
 }
 
 func GetDevice (id IDDevice) (Device, error){
@@ -52,10 +52,10 @@ func GetDevice (id IDDevice) (Device, error){
     id,
     name,
     phys,
-    deviceInfo.busType,
-    deviceInfo.vendor,
-    deviceInfo.product,
-    deviceInfo.version,    
+    deviceInfo.BusType,
+    deviceInfo.Vendor,
+    deviceInfo.Product,
+    deviceInfo.Version,    
     capabilitySeter(id),
   }, nil
 }
@@ -79,3 +79,21 @@ func GetDevices() (*[]Device, error){
 
   return &devices, nil
 }
+
+func (dev *Device) GetName() Name{
+  return dev.name
+}
+
+func (dev *Device) GetPhys() Phys{
+  return dev.phys
+}
+
+func (dev *Device) GetDeviceInfo() DeviceInfo{
+  return DeviceInfo{
+    dev.busType, 
+    dev.vendor, 
+    dev.product,
+    dev.version,
+  }
+}
+
